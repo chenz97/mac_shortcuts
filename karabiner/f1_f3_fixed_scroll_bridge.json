@@ -1,0 +1,56 @@
+{
+  "title": "F1/F3 bridge for Fixed Scroll",
+  "rules": [
+    {
+      "description": "F1/F3 交给 Fixed Scroll；虚拟机和远程桌面中保留原键",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f1",
+            "modifiers": {
+              "optional": ["fn", "caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f14",
+              "repeat": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^(com\\.apple\\.ScreenSharing|com\\.carriez\\.RustDesk|com\\.philandro\\.anydesk|com\\.citrix\\..*|com\\.microsoft\\.rdc\\.macos.*|com\\.parallels\\..*|com\\.teamviewer\\..*|com\\.utmapp\\..*|com\\.vmware\\..*|org\\.virtualbox\\.app\\..*)$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f3",
+            "modifiers": {
+              "optional": ["fn", "caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f13",
+              "repeat": true
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^(com\\.apple\\.ScreenSharing|com\\.carriez\\.RustDesk|com\\.philandro\\.anydesk|com\\.citrix\\..*|com\\.microsoft\\.rdc\\.macos.*|com\\.parallels\\..*|com\\.teamviewer\\..*|com\\.utmapp\\..*|com\\.vmware\\..*|org\\.virtualbox\\.app\\..*)$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

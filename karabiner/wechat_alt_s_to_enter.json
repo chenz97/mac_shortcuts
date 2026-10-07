@@ -1,0 +1,33 @@
+{
+  "title": "WeChat Alt+S to Enter",
+  "rules": [
+    {
+      "description": "仅在微信中将 Alt+S 映射为 Enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.tencent\\.xinWeChat$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "title": "Alt+Tab to Control+Down",
+  "rules": [
+    {
+      "description": "将 Alt+Tab 映射为 Control+↓；远程桌面中保留原键",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^(com\\.apple\\.ScreenSharing|com\\.carriez\\.RustDesk|com\\.philandro\\.anydesk|com\\.citrix\\..*|com\\.microsoft\\.rdc\\.macos.*|com\\.teamviewer\\..*)$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
